@@ -1,0 +1,14 @@
+# Python virtual environment
+venv/
+*.pyc
+__pycache__/
+
+# Logs
+*.log
+
+# Prometheus / binaries folder
+binaries/
+
+# Sensitive keys
+*.pem
+

@@ -1,0 +1,17 @@
+---
+- name: Self-Healing App Playbook
+  hosts: app_node      # <-- must match the group name in hosts.ini
+  become: yes
+  tasks:
+
+    - name: Check if app process is running
+      shell: ps aux | grep '[a]pp.py'
+      register: flask_process
+      ignore_errors: yes
+
+    - name: Start app if not running
+      shell: nohup /opt/myapp/venv/bin/python /opt/myapp/app.py > /opt/myapp/output.log 2>&1 &
+      args:
+        chdir: /opt/myapp
+      when: flask_process.rc != 0
+

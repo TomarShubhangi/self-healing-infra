@@ -1,0 +1,21 @@
+# Alertmanager Configuration for Self-Healing Flask App
+
+global:
+  resolve_timeout: 2m  # time after which resolved alerts are removed
+
+route:
+  receiver: 'webhook_receiver'
+  group_wait: 30s
+  group_interval: 1m
+  repeat_interval: 2m
+  # all alerts will be sent to the webhook receiver
+  routes: []
+
+receivers:
+  - name: 'webhook_receiver'
+    webhook_configs:
+      - url: 'http://13.53.205.27:5001/run-playbook'
+        send_resolved: true
+
+# Optional: silence and inhibit rules can be added here if needed
+
