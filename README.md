@@ -78,6 +78,20 @@ self-healing-infra/
 
 └── images/                 # images for the dashboard
 
+
+## Screenshots
+
+![Alertmanager](images/alertmanager.png)
+
+![Prometheus Dashboard](images/prometheus.png)
+
+![Webhook Logs](images/webhook.png)
+
+![Flowchart](images/flowchart.png)
+
+![Other](images/1.png)
+
+
 Notes:
 
 * Do not include venv/ or large binaries in GitHub; use .gitignore
@@ -85,3 +99,4 @@ Notes:
 
 License:
 MIT License © 2025 Shubhangi Tomar
+
